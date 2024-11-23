@@ -1,0 +1,1 @@
+(()=>{"use strict";var e,t={};e=t,Object.defineProperty(e,"__esModule",{value:!0}),e.EventThread=void 0,e.EventThread=class{static create(){const e=new Set,t=function(t){return e.add(t),function(){e.delete(t)}};return t.invoke=function(t){e.forEach((e=>{e(t)}))},t.clear=function(){e.clear()},t}},module.exports=t})();
