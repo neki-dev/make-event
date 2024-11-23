@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "keywords": [
     "emitter",
+    "events",
     "event",
     "subscribe",
     "listener"

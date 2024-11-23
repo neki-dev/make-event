@@ -1,4 +1,4 @@
-## ⚡ Event thread
+## 🧩 Event thread
 [![Version](https://badgen.net/npm/v/event-thread)](https://npmjs.com/package/event-thread)
 [![Size](https://img.badgesize.io/neki-dev/event-thread/master/dist/index.js)](https://github.com/neki-dev/event-thread/blob/master/dist/index.js)
 [![Test](https://github.com/neki-dev/event-thread/actions/workflows/test.yml/badge.svg)](https://github.com/neki-dev/event-thread/actions/workflows/test.yml)
@@ -8,15 +8,17 @@ Easy pattern for subscription to events
 
 .
 
-* ### Install
+## Install
 
 ```sh
 npm i event-thread
 ```
 
-* ### Usage
+.
+
+## Usage
   
-* #### Subscribe to event
+### Subscribe to event
 ```ts
 const onUpdate = EventThread.create<number>();
 
@@ -25,7 +27,7 @@ onUpdate((value) => {
 });
 ```
 
-* #### Unsubcsribe from event
+### Unsubcsribe from event
 ```ts
 const onUpdate = EventThread.create();
 
@@ -36,21 +38,23 @@ const unsubcribe = onUpdate(() => {
 unsubcribe();
 ```
 
-* #### Emit event
+### Invoke event
 ```ts
 const onUpdate = EventThread.create<number>();
 
 onUpdate.invoke(10);
 ```
 
-* #### Clear handlers
+### Remove all handlers
 ```ts
 const onUpdate = EventThread.create();
 
 onUpdate.clear();
 ```
 
-* ### Example
+.
+
+## Example
 ```ts
 class Player {
   public readonly onJump = EventThread.create<humber>();
@@ -59,6 +63,8 @@ class Player {
     this.onJump.invoke(height);
   }
 }
+
+// ...
 
 const player = new Player();
 
