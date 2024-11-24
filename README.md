@@ -1,10 +1,10 @@
-## 🧩 Make Event
+## 🧩 Make event
 [![Version](https://badgen.net/npm/v/make-event)](https://npmjs.com/package/make-event)
 [![Size](https://img.badgesize.io/neki-dev/make-event/master/dist/index.js)](https://github.com/neki-dev/make-event/blob/master/dist/index.js)
 [![Test](https://github.com/neki-dev/make-event/actions/workflows/test.yml/badge.svg)](https://github.com/neki-dev/make-event/actions/workflows/test.yml)
 [![Build](https://github.com/neki-dev/make-event/actions/workflows/build.yml/badge.svg)](https://github.com/neki-dev/make-event/actions/workflows/build.yml)
 
-Easy implementation of event bus pattern
+Easy pattern to create events with subscriptions
 
 .
 

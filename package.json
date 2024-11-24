@@ -1,6 +1,6 @@
 {
   "name": "make-event",
-  "description": "Easy implementation of event bus pattern",
+  "description": "Easy pattern to create events with subscriptions",
   "version": "1.0.0",
   "keywords": [
     "emitter",
