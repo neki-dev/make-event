@@ -1,6 +1,6 @@
 import type { Event, EventHandler } from "./types";
 
-export class EventThread {
+export class EventTrain {
   /**
    * Create new event
    */

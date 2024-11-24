@@ -1,11 +1,12 @@
 {
-  "name": "event-thread",
-  "description": "Easy pattern for subscription to events",
+  "name": "event-train",
+  "description": "Easy implementation of event bus pattern",
   "version": "1.0.0",
   "keywords": [
     "emitter",
     "events",
     "event",
+    "event-bus",
     "subscribe",
     "listener"
   ],
@@ -31,6 +32,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neki-dev/event-thread.git"
+    "url": "git+https://github.com/neki-dev/event-train.git"
   }
 }

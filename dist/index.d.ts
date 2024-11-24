@@ -1,5 +1,5 @@
 import type { Event } from "./types";
-export declare class EventThread {
+export declare class EventTrain {
     /**
      * Create new event
      */

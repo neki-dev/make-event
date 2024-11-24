@@ -1,98 +1,96 @@
-import { EventThread } from '../src';
+import { EventTrain } from "../src";
 
-describe('event thread', () => {
-  it('should invoke event', () => {
-    const handleTest = jest.fn();
-    const onTest = EventThread.create();
+it("should invoke event", () => {
+  const handleTest = jest.fn();
+  const onTest = EventTrain.create();
 
-    onTest(handleTest);
+  onTest(handleTest);
 
-    onTest.invoke();
+  onTest.invoke();
 
-    expect(handleTest).toHaveBeenCalledTimes(1);
-  });
+  expect(handleTest).toHaveBeenCalledTimes(1);
+});
 
-  it('should invoke event with payload', () => {
-    const handleTest = jest.fn();
-    const onTest = EventThread.create<number>();
+it("should invoke event with payload", () => {
+  const handleTest = jest.fn();
+  const onTest = EventTrain.create<number>();
 
-    onTest(handleTest);
+  onTest(handleTest);
 
-    onTest.invoke(10);
+  onTest.invoke(10);
 
-    expect(handleTest).toHaveBeenCalledWith(10);
-  });
+  expect(handleTest).toHaveBeenCalledWith(10);
+});
 
-  it('should call all handlers on invoke', () => {
-    const handleTest1 = jest.fn();
-    const handleTest2 = jest.fn();
-    const onTest = EventThread.create();
+it("should call all handlers on invoke", () => {
+  const handleTest1 = jest.fn();
+  const handleTest2 = jest.fn();
+  const onTest = EventTrain.create();
 
-    onTest(handleTest1);
-    onTest(handleTest2);
+  onTest(handleTest1);
+  onTest(handleTest2);
 
-    onTest.invoke();
+  onTest.invoke();
 
-    expect(handleTest1).toHaveBeenCalledTimes(1);
-    expect(handleTest2).toHaveBeenCalledTimes(1);
-  });
+  expect(handleTest1).toHaveBeenCalledTimes(1);
+  expect(handleTest2).toHaveBeenCalledTimes(1);
+});
 
-  it('should use unique handlers', () => {
-    const handleTest = jest.fn();
-    const onTest = EventThread.create();
+it("should use unique handlers", () => {
+  const handleTest = jest.fn();
+  const onTest = EventTrain.create();
 
-    onTest(handleTest);
-    onTest(handleTest);
+  onTest(handleTest);
+  onTest(handleTest);
 
-    onTest.invoke();
+  onTest.invoke();
 
-    expect(handleTest).toHaveBeenCalledTimes(1);
-  });
+  expect(handleTest).toHaveBeenCalledTimes(1);
+});
 
-  it('should unsubscribe', () => {
-    const handleTest1 = jest.fn();
-    const handleTest2 = jest.fn();
-    const onTest = EventThread.create();
+it("should unsubscribe", () => {
+  const handleTest1 = jest.fn();
+  const handleTest2 = jest.fn();
+  const onTest = EventTrain.create();
 
-    onTest(handleTest1);
+  onTest(handleTest1);
 
-    onTest(handleTest2);
-    onTest.unsubscribe(handleTest2);
-    
-    onTest.invoke();
+  onTest(handleTest2);
+  onTest.unsubscribe(handleTest2);
 
-    expect(handleTest1).toHaveBeenCalled();
-    expect(handleTest2).not.toHaveBeenCalled();
-  });
+  onTest.invoke();
 
-  it('should unsubscribe by returned method', () => {
-    const handleTest1 = jest.fn();
-    const handleTest2 = jest.fn();
-    const onTest = EventThread.create();
+  expect(handleTest1).toHaveBeenCalled();
+  expect(handleTest2).not.toHaveBeenCalled();
+});
 
-    onTest(handleTest1);
+it("should unsubscribe by returned method", () => {
+  const handleTest1 = jest.fn();
+  const handleTest2 = jest.fn();
+  const onTest = EventTrain.create();
 
-    const off = onTest(handleTest2);
-    off();
-    
-    onTest.invoke();
+  onTest(handleTest1);
 
-    expect(handleTest1).toHaveBeenCalled();
-    expect(handleTest2).not.toHaveBeenCalled();
-  });
+  const off = onTest(handleTest2);
+  off();
 
-  it('should clear handlers', () => {
-    const handleTest1 = jest.fn();
-    const handleTest2 = jest.fn();
-    const onTest = EventThread.create();
+  onTest.invoke();
 
-    onTest(handleTest1);
-    onTest(handleTest2);
-    
-    onTest.clear();
-    onTest.invoke();
+  expect(handleTest1).toHaveBeenCalled();
+  expect(handleTest2).not.toHaveBeenCalled();
+});
 
-    expect(handleTest1).not.toHaveBeenCalled();
-    expect(handleTest2).not.toHaveBeenCalled();
-  });
+it("should clear handlers", () => {
+  const handleTest1 = jest.fn();
+  const handleTest2 = jest.fn();
+  const onTest = EventTrain.create();
+
+  onTest(handleTest1);
+  onTest(handleTest2);
+
+  onTest.clear();
+  onTest.invoke();
+
+  expect(handleTest1).not.toHaveBeenCalled();
+  expect(handleTest2).not.toHaveBeenCalled();
 });
