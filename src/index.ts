@@ -32,3 +32,8 @@ export class Events {
     return wrapper;
   }
 }
+
+export type {
+  Event,
+  EventHandler,
+};
