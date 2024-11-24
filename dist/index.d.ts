@@ -1,7 +1,7 @@
 import type { Event } from "./types";
-export declare class EventTrain {
+export declare class Events {
     /**
      * Create new event
      */
-    static create<T = void>(): Event<T>;
+    static make<T = void>(): Event<T>;
 }

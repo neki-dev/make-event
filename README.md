@@ -1,8 +1,8 @@
-## 🧩 Event train
-[![Version](https://badgen.net/npm/v/event-train)](https://npmjs.com/package/event-train)
-[![Size](https://img.badgesize.io/neki-dev/event-train/master/dist/index.js)](https://github.com/neki-dev/event-train/blob/master/dist/index.js)
-[![Test](https://github.com/neki-dev/event-train/actions/workflows/test.yml/badge.svg)](https://github.com/neki-dev/event-train/actions/workflows/test.yml)
-[![Build](https://github.com/neki-dev/event-train/actions/workflows/build.yml/badge.svg)](https://github.com/neki-dev/event-train/actions/workflows/build.yml)
+## 🧩 Make Event
+[![Version](https://badgen.net/npm/v/make-event)](https://npmjs.com/package/make-event)
+[![Size](https://img.badgesize.io/neki-dev/make-event/master/dist/index.js)](https://github.com/neki-dev/make-event/blob/master/dist/index.js)
+[![Test](https://github.com/neki-dev/make-event/actions/workflows/test.yml/badge.svg)](https://github.com/neki-dev/make-event/actions/workflows/test.yml)
+[![Build](https://github.com/neki-dev/make-event/actions/workflows/build.yml/badge.svg)](https://github.com/neki-dev/make-event/actions/workflows/build.yml)
 
 Easy implementation of event bus pattern
 
@@ -11,7 +11,7 @@ Easy implementation of event bus pattern
 ## Install
 
 ```sh
-npm i event-train
+npm i make-event
 ```
 
 .
@@ -20,7 +20,7 @@ npm i event-train
   
 ### Subscribe to event
 ```ts
-const onUpdate = EventTrain.create<number>();
+const onUpdate = Events.make<number>();
 
 onUpdate((value) => {
   console.log(value);
@@ -29,7 +29,7 @@ onUpdate((value) => {
 
 ### Unsubcsribe from event
 ```ts
-const onUpdate = EventTrain.create();
+const onUpdate = Events.make();
 
 // method 1
 
@@ -51,14 +51,14 @@ onUpdate.unsubscribe(handler);
 
 ### Invoke event
 ```ts
-const onUpdate = EventTrain.create<number>();
+const onUpdate = Events.make<number>();
 
 onUpdate.invoke(10);
 ```
 
 ### Remove all handlers
 ```ts
-const onUpdate = EventTrain.create();
+const onUpdate = Events.make();
 
 onUpdate.clear();
 ```
@@ -67,8 +67,10 @@ onUpdate.clear();
 
 ## Example
 ```ts
+import { Events } from 'make-event';
+
 class Player {
-  public readonly onJump = EventTrain.create<humber>();
+  public readonly onJump = Events.make<humber>();
 
   public jump(height: number) {
     this.onJump.invoke(height);

@@ -1,5 +1,5 @@
 {
-  "name": "event-train",
+  "name": "make-event",
   "description": "Easy implementation of event bus pattern",
   "version": "1.0.0",
   "keywords": [
@@ -32,6 +32,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neki-dev/event-train.git"
+    "url": "git+https://github.com/neki-dev/make-event.git"
   }
 }

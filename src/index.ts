@@ -1,10 +1,10 @@
 import type { Event, EventHandler } from "./types";
 
-export class EventTrain {
+export class Events {
   /**
    * Create new event
    */
-  public static create<T = void>(): Event<T> {
+  public static make<T = void>(): Event<T> {
     const handlers = new Set<EventHandler<T>>();
 
     const wrapper = function on(handler: EventHandler<T>) {

@@ -1,8 +1,8 @@
-import { EventTrain } from "../src";
+import { Events } from "../src";
 
 it("should invoke event", () => {
   const handleTest = jest.fn();
-  const onTest = EventTrain.create();
+  const onTest = Events.make();
 
   onTest(handleTest);
 
@@ -13,7 +13,7 @@ it("should invoke event", () => {
 
 it("should invoke event with payload", () => {
   const handleTest = jest.fn();
-  const onTest = EventTrain.create<number>();
+  const onTest = Events.make<number>();
 
   onTest(handleTest);
 
@@ -25,7 +25,7 @@ it("should invoke event with payload", () => {
 it("should call all handlers on invoke", () => {
   const handleTest1 = jest.fn();
   const handleTest2 = jest.fn();
-  const onTest = EventTrain.create();
+  const onTest = Events.make();
 
   onTest(handleTest1);
   onTest(handleTest2);
@@ -38,7 +38,7 @@ it("should call all handlers on invoke", () => {
 
 it("should use unique handlers", () => {
   const handleTest = jest.fn();
-  const onTest = EventTrain.create();
+  const onTest = Events.make();
 
   onTest(handleTest);
   onTest(handleTest);
@@ -51,7 +51,7 @@ it("should use unique handlers", () => {
 it("should unsubscribe", () => {
   const handleTest1 = jest.fn();
   const handleTest2 = jest.fn();
-  const onTest = EventTrain.create();
+  const onTest = Events.make();
 
   onTest(handleTest1);
 
@@ -67,7 +67,7 @@ it("should unsubscribe", () => {
 it("should unsubscribe by returned method", () => {
   const handleTest1 = jest.fn();
   const handleTest2 = jest.fn();
-  const onTest = EventTrain.create();
+  const onTest = Events.make();
 
   onTest(handleTest1);
 
@@ -83,7 +83,7 @@ it("should unsubscribe by returned method", () => {
 it("should clear handlers", () => {
   const handleTest1 = jest.fn();
   const handleTest2 = jest.fn();
-  const onTest = EventTrain.create();
+  const onTest = Events.make();
 
   onTest(handleTest1);
   onTest(handleTest2);
