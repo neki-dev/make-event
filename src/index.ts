@@ -10,9 +10,13 @@ export class EventThread {
     const wrapper = function on(handler: EventHandler<T>) {
       handlers.add(handler);
 
-      return function off() {
-        handlers.delete(handler);
+      return function unsubscribe() {
+        wrapper.unsubscribe(handler);
       };
+    };
+
+    wrapper.unsubscribe = function unsubscribe(handler: EventHandler<T>): void {
+      handlers.delete(handler);
     };
 
     wrapper.invoke = function invoke(payload: T): void {

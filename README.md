@@ -31,11 +31,22 @@ onUpdate((value) => {
 ```ts
 const onUpdate = EventThread.create();
 
-const unsubcribe = onUpdate(() => {
-  console.log(true);
+// method 1
+
+const unsubscribe = onUpdate(() => {
 });
 
-unsubcribe();
+unsubscribe();
+
+// method 2
+
+const handler = () => {
+  console.log(true);
+}
+
+onUpdate(handler);
+
+onUpdate.unsubscribe(handler);
 ```
 
 ### Invoke event

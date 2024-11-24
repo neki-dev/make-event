@@ -5,13 +5,22 @@
  */
 export type EventHandler<T = void> = (payload: T) => void;
 
+export type EventUnsubscribe = VoidFunction;
+
 export type Event<T = void> = {
   /**
    * Subscribe
    *
    * @param handler - Event handler
    */
-  (handler: EventHandler<T>): VoidFunction;
+  (handler: EventHandler<T>): EventUnsubscribe;
+
+  /**
+   * Unsubscribe
+   *
+   * @param handler  - Event handler
+   */
+  unsubscribe: (handler: EventHandler<T>) => void;
 
   /**
    * Call all handlers

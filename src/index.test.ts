@@ -56,6 +56,22 @@ describe('event thread', () => {
 
     onTest(handleTest1);
 
+    onTest(handleTest2);
+    onTest.unsubscribe(handleTest2);
+    
+    onTest.invoke();
+
+    expect(handleTest1).toHaveBeenCalled();
+    expect(handleTest2).not.toHaveBeenCalled();
+  });
+
+  it('should unsubscribe by returned method', () => {
+    const handleTest1 = jest.fn();
+    const handleTest2 = jest.fn();
+    const onTest = EventThread.create();
+
+    onTest(handleTest1);
+
     const off = onTest(handleTest2);
     off();
     
