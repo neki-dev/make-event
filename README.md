@@ -1,4 +1,4 @@
-## 🧩 Event thread
+## 🧩 Event train
 [![Version](https://badgen.net/npm/v/event-train)](https://npmjs.com/package/event-train)
 [![Size](https://img.badgesize.io/neki-dev/event-train/master/dist/index.js)](https://github.com/neki-dev/event-train/blob/master/dist/index.js)
 [![Test](https://github.com/neki-dev/event-train/actions/workflows/test.yml/badge.svg)](https://github.com/neki-dev/event-train/actions/workflows/test.yml)
