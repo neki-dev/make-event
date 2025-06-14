@@ -7,7 +7,11 @@ export class Events {
   public static make<T = void>(): Event<T> {
     const handlers = new Set<EventHandler<T>>();
 
-    const wrapper = function on(handler: EventHandler<T>) {
+    const wrapper = function on(handler: EventHandler<T>, context?: any) {
+      if (context) {
+        handler = handler.bind(context);
+      }
+
       handlers.add(handler);
 
       return function unsubscribe() {
