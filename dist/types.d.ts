@@ -9,8 +9,9 @@ export type Event<T = void> = {
      * Subscribe
      *
      * @param handler - Event handler
+     * @param context - Event context
      */
-    (handler: EventHandler<T>): VoidFunction;
+    (handler: EventHandler<T>, context?: any): VoidFunction;
     /**
      * Unsubscribe
      *

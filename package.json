@@ -1,7 +1,7 @@
 {
   "name": "make-event",
   "description": "Easy pattern to create events with subscriptions",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "keywords": [
     "emitter",
     "events",
